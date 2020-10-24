@@ -10,8 +10,8 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :nickname %> <em>(6 characters maximum)</em><br />
-        <%= f.text_field :nickname, autofocus: true ,class:"form-control"%>
+        <%= f.label :nickname %> <em>(10 characters maximum)</em><br />
+        <%= f.text_field :nickname, autofocus: true ,maxlength:"10", class:"form-control"%>
       </div>
 
       <div class="field">

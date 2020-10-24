@@ -7,7 +7,7 @@ class User < ApplicationRecord
         has_many :posts
 
         with_options presence: true do
-          validates :nickname, presence: true, length: { maximum: 6 }
+          validates :nickname, presence: true, length: { maximum: 10 }
           EMAIL_REGEX = /@+/.freeze
           validates :email, uniqueness: { case_sensitive: true }, format: { with: EMAIL_REGEX, message: '@を使用してください' }
           PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
