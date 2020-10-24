@@ -6,7 +6,7 @@ ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4'
+gem 'mysql2', '>= 0.5.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -62,3 +62,7 @@ gem 'aws-sdk-s3', require: false
 gem 'bootstrap', '~> 4.1.1'
 
 gem 'jquery-rails'
+
+gem 'devise'
+
+gem 'pry-rails'
