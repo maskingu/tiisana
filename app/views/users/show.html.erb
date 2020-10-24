@@ -1,0 +1,16 @@
+
+<div class="container" style="margin-top:100px;">
+<div class="container ">
+<p><%= @nickname %>さんの投稿一覧</p>
+
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= image_tag post.image.variant(resize:'200x200') %></td>
+        <div><%= post.title %></div>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+</div>
+<div class="container" style="margin-bottom:100px;">
+
