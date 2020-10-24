@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :move_to_index, except: [:index, :show, :destroy]
   # GET /posts
   # GET /posts.json
   def index
@@ -71,4 +71,9 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :content, :image)
     end
+    
+    def move_to_index
+      unless user_signed_in?
+      redirect_to action: :index end
+      end
 end
