@@ -10,7 +10,7 @@
 <%= @post.content %>
 </P>
 
-      <% if user_signed_in? && current_user.id == @post.user_id%>
+  <% if user_signed_in? && current_user.id == @post.user_id%>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <td><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
