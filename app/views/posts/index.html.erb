@@ -1,6 +1,13 @@
-<body>
-<p id="notice"><%= notice %></p>
-<h1>Posts</h1>
+          <div class="bg-sample">
+</div>
+    <br>
+    <br>
+<h3 class="text-lg-center">地球と人のつながりをもっと身近なものに。</h3>
+    <p class="text-lg-center text-muted">みんなの投稿で普段の生活をもっと未来につなげよう</p>
+    <br>
+    <br>
+    <hr>
+    <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -16,7 +23,9 @@
           <%= image_tag post.image.variant(resize:'750x300'), class: "card-img-top" %>
           <div class="card-body text-truncate">
             <h2 class="card-title"><%= post.title %></h2>
-            <p class="card-text">
+            <p class="card-text"></p>
+            <p>
+            <%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%>
             </p>
           <%= link_to '詳細ページ', post, class: "btn btn-outline-primary" %>
           </div>
@@ -99,7 +108,6 @@
       </div>
     </div>
 </div>
-</body>
 <div class="container" style="margin-bottom:100px;">
 
 

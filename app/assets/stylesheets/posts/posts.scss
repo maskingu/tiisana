@@ -1,0 +1,45 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+// .site-heading {
+// height: 500px;
+// width: 100%;
+//   background-image: image-url('mizu1.webp');
+//   background-size: cover;
+  
+//   display: flex;
+//   flex-direction: column;
+  // align-items: flex-start;
+  // justify-content: center;
+  // padding: 5vh 15vw;
+  // color: #fff;
+  // text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  
+// }
+
+
+.bg-sample{
+  height: 700px;
+  width: 100%;
+  background-image: image-url('mizu1.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  margin-top:-70px;
+}
+
+
+.btn {
+  color: black;
+}
+
+
