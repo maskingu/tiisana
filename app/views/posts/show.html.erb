@@ -14,11 +14,50 @@
     <P>
     <%= @post.content %>
     </P>
-    <a class="navbar-brand" href="/">トップページに戻る</a>
     </div>
   </div>
 </div>
-<div class="container" style="margin-bottom:100px;">
+<hr>
+<div class="container ">
+<div class="col text-center text-muted mb-3">
+    <h4>コメント</h4> 
+</div>
+  <div class="col-8 mx-auto">
+<% if @comments %>
+    <% @comments.each do |comment| %>
+      <% if user_signed_in? %>
+        <p>
+        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+        <%= comment.text %>
+        </p>
+    <% else %>
+      <p>
+        <strong> <%= comment.user.nickname %>：</strong>
+        <%= comment.text %>
+      </p>
+    <% end %>
+  <% end %>
+  </div>
+      <div class="row ">
+        <div class="col-8 mx-auto">
+        <% if current_user %>
+        <hr>
+            <%= form_with(model: [@post, @comment], local: true) do |form| %>
+              <div class="form-group mt-3">
+                <%= form.text_area :text, placeholder: "コメント", rows: "2", class: "form-control" %>
+                <div class="text-right">
+                  <%= form.submit "SEND", class: "btn btn-outline-secondary "%> <% end %>
+                </div>
+              </div>
+            <% else %>
+            <strong><p class="text-center">※※※ コメントするにはログインしてください ※※※</p></strong>
+          <% end %> 
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<div class="container" style="margin-bottom:200px;">
 
 
 
