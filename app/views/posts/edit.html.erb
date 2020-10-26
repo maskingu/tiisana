@@ -1,8 +1,14 @@
-<h1>Editing Post</h1>
+<div class="container", style="margin-top:50px;">
 
-<%= render 'form', post: @post %>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <hr>
+    <h1 class="m-2 text-center">投稿編集ページ</h1>
+    <hr>
+    <%= render 'form', post: @post %>
+<a class="navbar-brand" href="/">トップページに戻る</a>
+  </div>
+</div>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<div class="container", style="margin-bottom:100px;">
 
-<div class="container" style="margin-bottom:100px;">
