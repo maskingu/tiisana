@@ -18,14 +18,15 @@
             <p>
             <%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%>
             </p>
-        <a href="/users/<%= post.user.id %>">
+        <a href="/users/<%= post.user.id %>", class="h5", style="text-decoration: none">
           <%= post.user.nickname %>
         </a>
             <div class="field">
           <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
           </div>
           <div class="card-footer text-muted">
-            January 1, 2020 by
+          投稿日時：
+          <%= post.created_at.to_s(:datetime_jp) %>
           </div>
         </div>
         <% end %>
