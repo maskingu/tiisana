@@ -6,7 +6,7 @@
     <h1 class="m-2 text-center">投稿編集ページ</h1>
     <hr>
     <%= render 'form', post: @post %>
-<a class="navbar-brand" href="/">トップページに戻る</a>
+  <%= link_to "戻る", "/users/#{current_user.id}",class: "h4 btn btn-outline-secondary",style: "text-decoration: none;" %>
   </div>
 </div>
 

@@ -46,7 +46,7 @@
           <button class="nav-alink btn btn-light dropdown-toggle" data-toggle="dropdown" href="/" aria-haspopup="true" aria-expanded="false"><%= current_user.nickname %>
           </button>
         <div class="dropdown-menu dropdown-menu-right">
-        <%= link_to "記事", "/users/#{current_user.id}", class: "dropdown-item", type:"button"%>
+        <%= link_to "マイページ", "/users/#{current_user.id}", class: "dropdown-item", type:"button"%>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item", type:"button"%>
         </div>
         </div>
