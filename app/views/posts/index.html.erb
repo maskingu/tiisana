@@ -1,8 +1,5 @@
-          <div class="bg-sample">
-</div>
-    <br>
-    <br>
-<h3 class="text-lg-center">地球と人のつながりをもっと身近なものに。</h3>
+<div class="bg-sample"></div>
+<h3 class="text-lg-center mt-5">地球と人のつながりをもっと身近なものに。</h3>
     <p class="text-lg-center text-muted">みんなの投稿で普段の生活をもっと未来につなげよう</p>
     <br>
     <br>
@@ -15,23 +12,20 @@
       <!-- Blog Entries Column -->
       <% @posts.each do |post| %>
       <div class="card mb-4">
-        <span class="name">
-        <a href="/users/<%= post.user.id %>">
-          <span>投稿者</span><%= post.user.nickname %>
-        </a>
-      </span>
-          <%= image_tag post.image.variant(resize:'750x300'), class: "card-img-top" %>
-          <div class="card-body text-truncate">
+          <%= image_tag post.image.variant(resize:'600x300'), class: "card-img-top" %>
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"></p>
             <p>
             <%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%>
             </p>
-          <%= link_to '詳細ページ', post, class: "btn btn-outline-primary" %>
+        <a href="/users/<%= post.user.id %>">
+          <%= post.user.nickname %>
+        </a>
+            <div class="field">
+          <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
           </div>
           <div class="card-footer text-muted">
-            Posted on January 1, 2020 by
-            <a href="#">Start Bootstrap</a>
+            January 1, 2020 by
           </div>
         </div>
         <% end %>
