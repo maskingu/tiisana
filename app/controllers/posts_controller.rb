@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @posts = Post.includes(:user).order("created_at DESC")
@@ -54,6 +54,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.search(params[:keyword])
+  end
+
   private
     def set_post
       @post = Post.find(params[:id])
@@ -67,5 +71,5 @@ class PostsController < ApplicationController
       unless user_signed_in?
       redirect_to action: :index 
       end
-      end
+    end
 end
