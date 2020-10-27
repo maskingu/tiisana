@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { minimum: 3 }
   validates :image, :content, presence: true
   validates :title, presence: true
-  validates :body, presence: true
+  validates :content, presence: true
 
   def self.search(search)
     if search != ""
