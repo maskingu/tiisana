@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
         has_many :posts, dependent: :destroy
         has_many :comments, dependent: :destroy
-
+        has_many :likes
         with_options presence: true do
           validates :nickname, presence: true, length: { maximum: 10 }
           EMAIL_REGEX = /@+/.freeze
