@@ -11,57 +11,44 @@
   </head>
 
   <body>
-  
   <nav class="navbar navbar-light navbar-expand-md ">
-        <a class="navbar-brand text-primary",class="h1" href="/">
-        <div class="h3">
-                Tiisana
-        </div>
-        </a>
-    <div class="collapse navbar-collapse">
+    <a class="navbar-brand text-primary",class="h1" href="/">
+      <div class="h3">Tiisana</div>
+    </a>
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
     <div class="navbar-item d-flex justify-content-end align-items-center">
-  
-        
-<%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
-        <div>
-        
-        </div>
-        <div class="input-group">
-          <%= form.text_field :keyword, class: "search-form navop" %>
+  <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+    <div class="input-group">
+      <%= form.text_field :keyword, class: "search-form navop" %>
+      <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-light mr-1" %>
+    </div>
+      </div>
+  <% end %>
 
-          <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-light mr-1" %>
-
-            </div>
-        </div>
-        <% end %>
-
-        <% if user_signed_in? %>  
-        
-        <li class="nav-item mr-2 ">
-        <%= link_to "新規投稿", new_post_path, class: "nav-alink btn btn-light " %>
-        </li>
-        <li class="nav-item dropdown">
-        <div class="btn-group">
-          <button class="nav-alink btn btn-light dropdown-toggle" data-toggle="dropdown" href="/" aria-haspopup="true" aria-expanded="false"><%= current_user.nickname %>
-          </button>
-        <div class="dropdown-menu dropdown-menu-right">
+  <% if user_signed_in? %>  
+  <li class="nav-item mr-2 ">
+    <%= link_to "新規投稿", new_post_path, class: "nav-alink btn btn-light " %>
+  </li>
+  <li class="nav-item dropdown">
+    <div class="btn-group">
+        <button class="nav-alink btn btn-light dropdown-toggle" data-toggle="dropdown" href="/" aria-haspopup="true" aria-expanded="false"><%= current_user.nickname %>
+        </button>
+      <div class="dropdown-menu dropdown-menu-right">
         <%= link_to "マイページ", "/users/#{current_user.id}", class: "dropdown-item", type:"button"%>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item", type:"button"%>
-        </div>
-        </div>
-        <ul>
-        </li>
-    
-          <% else %> 
-          <li class="nav-item mr-2">
-          <%= link_to "ログイン", new_user_session_path, class: "nav-alink btn btn-light" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "nav-alink btn btn-light"%>
-        </li>
-        </ul>
-        <% end %>
-        </div>
-        </div>
+      </div>
+    </div>
+    <ul>
+      </li>
+        <% else %> 
+        <li class="nav-item mr-2">
+        <%= link_to "ログイン", new_user_session_path, class: "nav-alink btn btn-light" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-alink btn btn-light"%>
+      </li>
+    </ul>
+    <% end %>
+    </div>
   </nav>
       <%= yield %>
   <nav class="navbar bg-light navbar-light navbar-expand-md mt-5 fixed-bottom">
