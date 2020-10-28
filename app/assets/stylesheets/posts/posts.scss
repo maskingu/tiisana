@@ -42,12 +42,20 @@
   color: black;
 }
 
-.iine__button{
-  line-height: 42px;
-  color: #6d3701;
-  font-size: 14px;
-  display: inline-block;
-  padding: 0 18px;
-  border-radius: 100px;
-  font-weight: bold;
+.like-link {
+  text-decoration: none;
+}
+
+.like-link:hover {
+  background-color: #fff!important;
+}
+
+.like-btn {
+  font-size: 15px;
+  color: #808080;
+}
+ 
+.unlike-btn {
+  font-size: 15px;
+  color: #e54747;
 }

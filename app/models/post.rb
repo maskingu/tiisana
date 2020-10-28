@@ -4,24 +4,25 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :likes, dependent: :destroy
-  has_many :liking_users, through: :likes, source: :user
+    has_many :liking_users, through: :likes, source: :user
 
 
   validates :title, presence: true, length: { minimum: 3 }
   validates :image, :content, presence: true
   validates :content, presence: true
 
-  def self.search(search)
-    if search != ""
-      scope :search, -> (search_param = nil) {
+
+  scope :searchtext, -> (search_param = nil) {
+    if search_param
         return if search_param.blank?
         joins("INNER JOIN action_text_rich_texts ON action_text_rich_texts.record_id = posts.id AND action_text_rich_texts.record_type = 'Post'")
-        .where("action_text_rich_texts.body LIKE ? OR posts.title LIKE ? ", "%#{search_param}%", "%#{search_param}%")
-      }
-  else
-    Post.all
-  end
-  end
+      .where("action_text_rich_texts.body LIKE ? OR posts.title LIKE ? ", "%#{search_param}%", "%#{search_param}%")
+    
+      else
+        all
+      end
+    }
+
 end
 
 
