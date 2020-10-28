@@ -3,11 +3,12 @@ class Post < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_many :comments
-  has_many :likes
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
+
 
   validates :title, presence: true, length: { minimum: 3 }
   validates :image, :content, presence: true
-  validates :title, presence: true
   validates :content, presence: true
 
   def self.search(search)

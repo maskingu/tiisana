@@ -13,6 +13,8 @@
     </h1>
     <P>
     <%= @post.content %>
+    <% @posts.each do |post| %>
+      <%= render partial: 'posts/posts', collection: @posts, as: :post %>
     </P>
     </div>
   </div>
@@ -21,11 +23,15 @@
 <div class="container ">
 <div class="col text-center text-muted mb-3">
     <h4>コメント</h4> <%= @comments_count %>
+      <% end %>
+
 </div>
+
   <div class="col-8 mx-auto">
 <% if @comments %>
     <% @comments.each do |comment| %>
       <% if user_signed_in? %>
+
         <p>
         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
         <%= comment.text %>
