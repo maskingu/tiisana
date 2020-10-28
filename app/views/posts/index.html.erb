@@ -16,9 +16,13 @@
         <p>
         <%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%>
         </p>
-    <a href="/users/<%= post.user.id %>", class="h5", style="text-decoration: none">
-      <%= post.user.nickname %>
-    </a>
+    <div class="d-inline-flex">
+      <a href="/users/<%= post.user.id %>", class="h5", style="text-decoration: none">
+        <%= post.user.nickname %>
+      </a>
+        <%= render partial: 'posts/posts', collection: @posts, as: :post %>
+    </div>
+    
         <div class="field">
       <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
       </div>

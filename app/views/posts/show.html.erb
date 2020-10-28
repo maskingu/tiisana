@@ -10,10 +10,13 @@
       <h1 class="text-center">
       <strong><%= @post.title %></strong>
     </h1>
+    <div class="d-inline-flex mb-5">
+      <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
+        <%= @post.user.nickname %>
+      </a>
         <%= render partial: 'posts/posts', collection: @posts, as: :post %>
-    <P>
+    </div>
     <%= @post.content %>
-    </P>
     </div>
   </div>
 </div>
@@ -59,7 +62,5 @@
   </div>
 <div class="container" style="margin-bottom:200px;">
 
-<div>
-c</div>
 
 
