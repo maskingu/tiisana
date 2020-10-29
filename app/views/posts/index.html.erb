@@ -10,7 +10,7 @@
       <!-- Blog Entries Column -->
   <% @posts.each do |post| %>
     <div class="card mb-4">
-      <%= image_tag post.image.variant(resize:'500x300'), class: "card-img-top" %>
+      <%= image_tag post.image.variant(resize:'300x200').processed, class: "card-img-top" %>
         <h2 class="card-title"><%= post.title %></h2>
         <p class="card-text"></p>
         <p>
