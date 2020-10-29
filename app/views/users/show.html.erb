@@ -1,7 +1,19 @@
 <div class="container" style="margin-top:100px;">
+
+<div class="container">
+  <div>
+    <p class="h4 text-bold"><%= @nickname %>さんの投稿一覧</p>
+  </div>
+  <div>
+      <p>プロフィール : <%= @user.profile %></p>
+  </div>
+  <% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar %>
+  <% end %>
+  </div>
+<hr>
 <div class="album py-5 bg-light">
-  <div class="container ">
-  <p><%= @nickname %>さんの投稿一覧</p>
+  <div class="container">
     <div class="row">
       <% @posts.each do |post| %>
       <div class="col-md-4">
