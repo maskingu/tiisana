@@ -10,7 +10,7 @@
       <!-- Blog Entries Column -->
   <% @posts.each do |post| %>
     <div class="card mb-4">
-      <%= image_tag post.image.variant(resize:'600x300'), class: "card-img-top" %>
+      <%= image_tag post.image.variant(resize:'500x300'), class: "card-img-top" %>
         <h2 class="card-title"><%= post.title %></h2>
         <p class="card-text"></p>
         <p>
@@ -21,7 +21,7 @@
         <%= post.user.nickname %>
       </a>
         <%= render partial: 'posts/posts', collection: @posts, as: :post %>
-    </div>
+        </div>
     
         <div class="field">
       <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
