@@ -6,7 +6,7 @@
       <% @posts.each do |post| %>
       <div class="col-md-4">
         <div class="card text-center h-100">
-          <td><%= image_tag post.image.variant(resize:'200x200'), class: "card-img-top" %></td>
+          <td><%= image_tag post.image.variant(resize:'300x200'), class: "card-img-top" %></td>
           <h4 class="card-text"><%= post.title %></h4>
           <div class="card-body ">
             <%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%>
