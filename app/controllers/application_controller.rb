@@ -8,6 +8,7 @@ devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
 devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :profile, %i(avatar)])
 end
 
+
 def after_sign_in_path_for(resource)
   posts_path
 end

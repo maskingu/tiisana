@@ -4,8 +4,10 @@
   <div class="col d-flex inline">
     <% if @user.avatar.attached? %>
   <%= image_tag @user.avatar.variant(resize:'100x100').processed, class:"avatar m-4"%>
-    <p class="h3 text-bold justify-content-center align-self-center"><%= @nickname %>さんの投稿一覧</p>
+  <% else %>
+    <%= image_tag ("mizu.jpg"), class:"avatar m-4"%>
   <% end %>
+  <p class="h3 text-bold justify-content-center align-self-center"><%= @nickname %>さんの投稿一覧</p>
   </div>
   <div class="col-md-6 offset-md-2">
       <p>プロフィール : <%= @user.profile %></p>
