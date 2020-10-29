@@ -1,16 +1,16 @@
 <div class="container" style="margin-top:100px;">
 
 <div class="container">
-  <div>
-    <p class="h4 text-bold"><%= @nickname %>さんの投稿一覧</p>
-  </div>
-  <div>
-      <p>プロフィール : <%= @user.profile %></p>
-  </div>
-  <% if @user.avatar.attached? %>
-  <%= image_tag @user.avatar %>
+  <div class="col d-flex inline">
+    <% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar.variant(resize:'100x100').processed, class:"avatar m-4"%>
+    <p class="h3 text-bold justify-content-center align-self-center"><%= @nickname %>さんの投稿一覧</p>
   <% end %>
   </div>
+  <div class="col-md-6 offset-md-2">
+      <p>プロフィール : <%= @user.profile %></p>
+  </div>
+</div>
 <hr>
 <div class="album py-5 bg-light">
   <div class="container">
