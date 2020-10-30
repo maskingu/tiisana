@@ -1,0 +1,5 @@
+<% if @user.avatar.attached? %>
+  <%= image_tag @user.image.variant(resize:'100x100').processed, class:"avatar m-4"%>
+  <% else %>
+    <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
+  <% end %>

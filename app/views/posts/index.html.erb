@@ -10,18 +10,28 @@
       <!-- Blog Entries Column -->
   <% @posts.each do |post| %>
     <div class="card mb-4">
-      <%= image_tag post.image.variant(resize:'300x200').processed, class: "card-img-top" %>
+      <%= image_tag post.image, size: "200x400", class: "card-img-top " %>
         <h2 class="card-title"><%= post.title %></h2>
         <p class="card-text"></p>
         <p>
         <%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%>
         </p>
-    <div class="d-inline-flex">
-      <a href="/users/<%= post.user.id %>", class="h5", style="text-decoration: none">
-        <%= post.user.nickname %>
+    <div class="row">
+    <div class="col-2">
+      <% if post.user.image.attached? %>
+      <%= image_tag post.user.image, class:"avatar m-4"%>
+      <% else %>
+      <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
+      <% end %>
+      </div>
+    <div class="col-4 align-self-center">
+    <a href="/users/<%= post.user.id %>", class="h5", style="text-decoration: none">
+        <p class="h3 text-bold "><%= post.user.nickname %></p>
       </a>
-        <%= render partial: 'posts/posts', collection: @posts, as: :post %>
-        </div>
+      <%= render partial: 'posts/posts', collection: @posts, as: :post %>
+    </div>
+      
+      </div>
     
         <div class="field">
       <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>

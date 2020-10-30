@@ -2,10 +2,10 @@
 
 <div class="container">
   <div class="col d-flex inline">
-    <% if @user.avatar.attached? %>
-  <%= image_tag @user.avatar.variant(resize:'100x100').processed, class:"avatar m-4"%>
+    <% if @user.image.attached? %>
+  <%= image_tag @user.image.variant(resize:'100x100').processed, class:"avatar m-4"%>
   <% else %>
-    <%= image_tag ("mizu.jpg"), class:"avatar m-4"%>
+    <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
   <% end %>
   <p class="h3 text-bold justify-content-center align-self-center"><%= @nickname %>さんの投稿一覧</p>
   </div>

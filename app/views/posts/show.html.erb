@@ -3,14 +3,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <%= image_tag @post.image.variant(resize:'700x700').processed %>
+      <%= image_tag @post.image.variant(resize:'800x800').processed %>
       <br>
       <br>
       <br>
       <h1 class="text-center">
       <strong><%= @post.title %></strong>
     </h1>
-    <div class="d-inline-flex mb-5">
+    <div class="d-inline-flex mb-5 inline">
       <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
         <%= @post.user.nickname %>
       </a>
