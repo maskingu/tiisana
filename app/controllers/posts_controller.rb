@@ -5,7 +5,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).order("created_at DESC")
-    
+    @post = Post.includes(:user)
+
   end
 
   
@@ -64,7 +65,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :content, :image, :likes_count).merge(user_id: current_user.id)
     end
     
     def move_to_index

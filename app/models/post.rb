@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :likes, dependent: :destroy
-  has_many :liking_users, through: :likes, source: :user
+  has_many :like_users, through: :likes, source: :user
 
 
   validates :title, presence: true, length: { minimum: 3 }

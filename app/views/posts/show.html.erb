@@ -10,12 +10,22 @@
       <h1 class="text-center">
       <strong><%= @post.title %></strong>
     </h1>
-    <div class="d-inline-flex mb-5 inline">
-      <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
-        <%= @post.user.nickname %>
+    <div class="row">
+    <div class="col-2">
+      <% if @post.user.image.attached? %>
+      <%= image_tag @post.user.image, class:"avatar m-4"%>
+      <% else %>
+      <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
+      <% end %>
+      </div>
+    <div class="col-4 align-self-center">
+    <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
+        <p class="h3 text-bold "><%= @post.user.nickname %></p>
       </a>
-        <%= render partial: 'posts/posts', collection: @posts, as: :post %>
+      <%= render partial: 'posts/posts', collection: @posts, as: :post %>
     </div>
+      
+      </div>
     <%= @post.content %>
     </div>
   </div>
