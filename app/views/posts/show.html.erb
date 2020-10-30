@@ -24,7 +24,7 @@
       </a>
       <%= render partial: 'posts/posts', collection: @posts, as: :post %>
     </div>
-      
+    <%= render 'relationships/follow_button', user: @user %>
       </div>
     <%= @post.content %>
     </div>

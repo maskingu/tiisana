@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).order("created_at DESC")
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
-    
+    @user = User.find(params[:id])
   end
 
 
