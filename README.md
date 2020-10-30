@@ -32,6 +32,7 @@ Things you may want to cover:
 | nickname      | string   | null: false |
 | email         | string   | null: false |
 | password      | string   | null: false |
+| profile       | text     | null: false |
 
 ### Association
 
@@ -39,6 +40,21 @@ Things you may want to cover:
 - has_many :comments
 - has_many :likes
 - has_many :like_posts
+- has_many :relationships
+- has_many :followings, through: :relationships, source: :follow
+- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+- has_many :followers, through: :reverse_of_relationships, source: :user
+
+## Relationship テーブル
+
+| Column                               | Type       | Options                       |
+| user                                 | integer    | references                    |
+| follow                               | integer    | references                    |
+| [:user_id, :follow_id], unique: true | index      | foreign_key:{to_table: users} |
+
+### Association
+- belongs_to :user
+- belongs_to :follow, class_name: 'User'
 
 # comments テーブル
 
