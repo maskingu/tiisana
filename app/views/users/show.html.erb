@@ -16,12 +16,7 @@
   <div class="col-md-6 offset-md-2">
       <span>プロフィール : <%= @user.profile %></span>
   </div>
-  <div class="col mt-2">
-  <span><%= @user.followings.count %>フォロー</span>
-  <span class="ml-3"><%= @user.followers.count %>フォロワー</span>
-  </div>
-</div>
-  
+  <%= render 'stats' %>
   
 </div>
 <hr>

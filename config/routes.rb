@@ -10,7 +10,13 @@ root to: "posts#index"
       get 'search'
     end
   end
-  resources :users, only: [:show, :index, :search]
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :relationships, only: [:create, :destroy]
 
   post   '/like/:post_id' => 'likes#like',   as: 'like'
