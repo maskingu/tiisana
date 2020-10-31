@@ -7,44 +7,34 @@
     
 <div class="container">
   <div class="row">
+    <% @posts.each do |post| %>
     <div class="col-md-8">
-      <!-- Blog Entries Column -->
-  <% @posts.each do |post| %>
-    <div class="card mb-4">
-      <%= image_tag post.image, size: "200x400", class: "card-img-top " %>
+      <div class="card mb-3">
+        <%= image_tag post.image, size: "200x400", class: "card-img-top " %>
         <h2 class="card-title"><%= post.title %></h2>
         <p class="card-text"></p>
-        <p>
-        <%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%>
-        </p>
-    <div class="row">
-    <div class="col-2">
-      <% if post.user.image.attached? %>
-      <%= image_tag post.user.image, class:"avatar m-4"%>
-      <% else %>
-      <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
-      <% end %>
-      </div>
-    <div class="col-4 align-self-center">
-    <a href="/users/<%= post.user.id %>", class="h5", style="text-decoration: none">
-        <p class="h3 text-bold "><%= post.user.nickname %></p>
-      </a>
-      <%= render partial: 'posts/posts', collection: @posts, as: :post %>
-    </div>
-      
-      </div>
-    
+        <p><%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%></p>
+        <div class="col-2">
+          <% if post.user.image.attached? %>
+            <%= image_tag post.user.image, class:"avatar m-4"%>
+          <% else %>
+            <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
+          <% end %>
+        </div>
+          <div class="col-6 align-self-center">
+            <a href="/users/<%= post.user.id %>", class="h5", style="text-decoration: none">
+            <p class="h3 text-bold "><%= post.user.nickname %></p>
+            </a>
+          <%= render partial: 'posts/posts',  locals: { post: post } %>
+        </div>    
         <div class="field">
-      <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
+        <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
+        </div>
+          <div class="card-footer text-muted">
+          投稿日時：<%= post.created_at.to_s(:datetime_jp) %>
+          </div>
       </div>
-      <div class="card-footer text-muted">
-      投稿日時：
-      <%= post.created_at.to_s(:datetime_jp) %>
-      </div>
-    </div>
-  <% end %>
-      
-        <!-- Pagination -->
+      <% end %>
         <ul class="pagination justify-content-center mb-4">
           <li class="page-item">
             <a class="page-link" href="#">&larr; Older</a>
@@ -53,10 +43,8 @@
             <a class="page-link" href="#">Newer &rarr;</a>
           </li>
         </ul>
-                </div>
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
-
         <!-- Search Widget -->
         <div class="card my-4">
         <h5 class="card-header">Search</h5>  
@@ -69,6 +57,7 @@
         </div>
         <% end %>
       </div>
+      
         <!-- Categories Widget -->
         <div class="card my-4">
           <h5 class="card-header">Categories</h5>
@@ -113,8 +102,10 @@
         </div>
 
       </div>
-    </div>
+  </div>
 </div>
+            </div>
+
 <div class="container" style="margin-bottom:100px;">
 
 

@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <hr>
 <div class="container">
   <div class="row">
@@ -22,7 +21,8 @@
     <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
         <p class="h3 text-bold "><%= @post.user.nickname %></p>
       </a>
-      <%= render partial: 'posts/posts', collection: @posts, as: :post %>
+      
+      <%= render partial: 'posts/posts',  locals: { post: @post } %>
     </div>
     <%= render 'relationships/follow_button', user: @user %>
       </div>
