@@ -1,0 +1,22 @@
+<%= render 'userhed' %>
+  <div class="jumbotron bg-light">
+    <div class="container">
+      <% @user.followings.each do |user| %>
+        <div class="row" >
+        <ul class="list-group col-md-8 offset-md-2 ">
+        <li class="list-group-item "><% if user.image.attached? %>
+          <%= image_tag @post.user.image, class:"avatar"%>
+          <% else %>
+          <%= image_tag ("defo.jpg"), class:"avatar"%>
+          <% end %>
+          <span class="font-weight-bold"><%= user.nickname %></span>
+        <%= link_to 'ユーザー詳細', user_path(user) %>
+        <div class="col-3 float-right mt-3">
+          <%= render 'relationships/follow_button', user: @user %>
+        </div>
+        </li>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+  </div>
