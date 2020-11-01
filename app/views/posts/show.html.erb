@@ -21,7 +21,6 @@
     <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
         <p class="h3 text-bold "><%= @post.user.nickname %></p>
       </a>
-      
       <%= render partial: 'posts/posts',  locals: { post: @post } %>
     </div>
       </div>
