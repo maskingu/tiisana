@@ -51,8 +51,9 @@
     <% end %>
     </div>
   </nav>
-  <%= render partial: 'layouts/flash' %>
   <%= breadcrumbs separator: " &rsaquo; " %>
+    <%= render partial: 'layouts/flash' %>
+
       <%= yield %>
   <nav class="navbar bg-light navbar-light navbar-expand-md mt-5 fixed-bottom">
     <a class="navbar-brand text-center" href="/">© 2020 Tiisana</a>

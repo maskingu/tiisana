@@ -13,7 +13,7 @@
           <span class="font-weight-bold"><%= user.nickname %></span>
         <%= link_to 'ユーザー詳細', user_path(user) %>
         <div class="col-3 float-right mt-3">
-          <%= render 'relationships/follow_button', user: @user %>
+          <%= render 'relationships/follow_button', user: user %>
         </div>
         </li>
         </ul>

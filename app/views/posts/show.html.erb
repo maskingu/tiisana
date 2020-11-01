@@ -11,6 +11,10 @@
       <strong><%= @post.title %></strong>
     </h1>
     <div class="row">
+    
+    <div class="col-4 align-self-center">
+    
+    <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
     <div class="col-2">
       <% if @post.user.image.attached? %>
       <%= image_tag @post.user.image, class:"avatar m-4"%>
@@ -18,9 +22,7 @@
       <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
       <% end %>
       </div>
-    <div class="col-4 align-self-center">
-    <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
-        <p class="h3 text-bold "><%= @post.user.nickname %></p>
+        <p class="h3 text-bold text-muted"><%= @post.user.nickname %></p>
       </a>
       <%= render partial: 'posts/posts',  locals: { post: @post } %>
     </div>
