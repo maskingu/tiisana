@@ -1,6 +1,7 @@
 <%= render 'userhed' %>
 <hr>
 <div class="album py-5 bg-light">
+<% breadcrumb :user %>
   <div class="container">
     <div class="row">
       <% @posts.each do |post| %>
