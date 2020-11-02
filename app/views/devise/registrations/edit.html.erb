@@ -4,8 +4,7 @@
 <h2><%= @nickname.to_s.humanize %></h2>
 </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
+<%= render 'layouts/error_messages', model: f.object %>
 <%= f.file_field :image, class:"form-control" %>
 
 <div class="field">

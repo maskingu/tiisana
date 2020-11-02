@@ -1,11 +1,7 @@
-<% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-    </h2>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+<% if model.errors.any? %> <div class="error-alert">
+<ul>
+<% model.errors.full_messages.each do |message| %> 
+<li class='error-message'><%= message %></li>
+<% end %>
+</ul> </div>
 <% end %>
