@@ -26,7 +26,8 @@
               <p class="h3 text-bold text-muted"><%= post.user.nickname %></p>
               </a>
             <%= render partial: 'posts/posts',  locals: { post: post } %>
-          </div>    
+          </div>
+          <%= render 'posts/tag_list', tag_list: post.tag_list %>
             <div class="field">
               <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
             </div>

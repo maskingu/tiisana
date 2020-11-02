@@ -21,7 +21,7 @@
 
       <div class="field mb-5">
       <%= form.label :タグ, class: "h5" %>
-      <%= form.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control" %>
+      <%= form.text_field :tag_list, value: @post.tag_list.join(','), placeholder:"複数のタグを指定する時はカンマ(,)で区切ってください", class: "form-control" %>
     </div>
 
   <div class="actions">

@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(10)
     @post = Post.includes(:user)
+    if params[:tag_name]
+      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
+    end
   end
 
   def show
