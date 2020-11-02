@@ -13,16 +13,18 @@
 
 <div class="form-group ">
   <div class="field m-5">
-    <div class="d-flex justify-content-between align-items-center mb-5", id="image-list"></div>
-
-    <%= form.label :image %>
-    <%= form.file_field :image, id:"item-image", accept: "image/png, image/jpeg, image/gif" %>
+    <div class="d-flex justify-content-between align-items-center mb-2", id="image-list"></div>
+<div class="custom-file">
+    <%= form.label :アイキャッチ画像, class:"custom-file-label"%>
+    <%= form.file_field :image, id:"item-image", accept: "image/png, image/jpeg, image/gif" , class:"custom-file-input", type:"file"%>
   </div>
+</div>
+
   <div id="image-list"></div>
 
   <div class="field mb-5">
     <%= form.label :タイトル , class: "h5"%>
-    <%= form.text_field :title, class:"form-control" %>
+    <%= form.text_field :title, class:"form-control", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
   </div>
 
     <div class="field mb-5">
