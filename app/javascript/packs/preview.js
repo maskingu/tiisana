@@ -4,8 +4,8 @@ function preview() {
     const imageElement = document.createElement('div');
     const blobImage = document.createElement('img');
     blobImage.setAttribute('src', blob);
-    blobImage.setAttribute('height', '600')
-    blobImage.setAttribute('width', '700')
+    blobImage.setAttribute('height', '500')
+    blobImage.setAttribute('width', '600')
 
 
     imageElement.appendChild(blobImage);

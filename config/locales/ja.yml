@@ -1,13 +1,3 @@
-ja: 
-  activerecord:
-    attributes: 
-      user:
-        nickname: ニックネーム
-      post:
-        text: テキスト
-        image: 画像
-        title: タイトル
-        content: 記事の内容
 
 ja:
   views:
@@ -17,3 +7,16 @@ ja:
       previous: <i class="fas fa-angle-left"></i>
       next: <i class="fas fa-angle-right"></i>
       truncate: "..."
+
+      ja: 
+  activerecord:
+    attributes: 
+      user:
+        nickname: ニックネーム
+        
+      post:
+        text: テキスト
+        image: アイキャッチ画像
+        title: タイトル
+        content: 記事の内容
+        user: ユーザー
