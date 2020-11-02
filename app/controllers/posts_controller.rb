@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(10)
     @post = Post.includes(:user)
+    if params[:tag_name]
+      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
+    end
   end
 
   def show
@@ -52,12 +55,13 @@ class PostsController < ApplicationController
   end
 
   private
+
     def set_post
       @post = Post.find(params[:id])
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :content, :image, :tag_list).merge(user_id: current_user.id)
     end
     
     def move_to_index
@@ -65,4 +69,5 @@ class PostsController < ApplicationController
       redirect_to action: :index 
       end
     end
+    
 end
