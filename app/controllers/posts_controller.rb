@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit]
+  before_action :set_post, only: [:show, :edit,:destroy, :update]
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
@@ -30,17 +30,17 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-  if @post.update(post_params)
-    redirect_to root_path
-  else
-    render :edit
-  end
+    if user_signed_in? && @post.user == current_user
+      @post.update(post_params)
+      redirect_to post_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    post = Post.find(params[:id])
-    if post.destroy
+    if user_signed_in? && @post.user == current_user
+      post.destroy
       redirect_to root_path
     else
       render :show

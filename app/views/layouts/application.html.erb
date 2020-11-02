@@ -20,7 +20,7 @@
     <div class="navbar-item d-flex justify-content-end align-items-center">
   <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
     <div class="input-group">
-      <%= form.text_field :keyword, class: "search-form navop" %>
+      <%= form.text_field :keyword, class: "search-form navop form-control" %>
       <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-light mr-1" %>
     </div>
       </div>

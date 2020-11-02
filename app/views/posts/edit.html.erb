@@ -5,6 +5,9 @@
     <hr>
     <h1 class="m-2 text-center">投稿編集ページ</h1>
     <hr>
+    <div>
+          <%= image_tag @post.image.variant(resize:'700x700').processed %>
+    </div>
     <%= render 'form', post: @post %>
   <%= link_to "戻る", "/users/#{current_user.id}",class: "h4 btn btn-outline-secondary",style: "text-decoration: none;" %>
   </div>
