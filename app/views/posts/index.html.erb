@@ -8,10 +8,10 @@
     <% breadcrumb :root %>
 <div class="container">
   <div class="row">
-        <div class="col-md-7 offset-md-1">
+        <div class="col-md-8">
     <% @posts.each do |post| %>
-        <div class="card border-light mb-4">
-          <%= image_tag post.image.variant(resize:'500x400').processed, class: "card-img-top " %>
+        <div class="card mb-4">
+          <%= image_tag post.image.variant(resize:'300x400').processed, class: "card-img-top "%>
           <div class="card-body">
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%></p>
@@ -32,9 +32,9 @@
       </a>
     </div>
       </div>
-            <div class="card-footer text-muted">投稿日時：<%= post.created_at.to_s(:datetime_jp) %>
+            <div class="card-footer text-muted">
             <div class="field">
-              <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
+              <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control " %>
             </div>
             </div>
         </div>
@@ -42,13 +42,24 @@
       <% end %>
       </div>
       <div class="col-md-4">
-      wwwww
+      <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">タグ一覧</h5>
+    <h6 class="card-subtitle mb-2 text-muted">クリックで関連した記事が見れます</h6>
+
+<% @tags.each do |tag| %>
+  <span class="badge badge-pill badge-info m-1 p-2">
+    <%= link_to tag.name, posts_path(tag_name: tag.name), class: "text-white"%>
+      </span>
+<% end %>
+
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
       </div>
     </div>
-
 <%= paginate @posts %>
-
-
 <div class="container" style="margin-bottom:100px;">
 
 
