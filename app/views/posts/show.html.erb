@@ -1,40 +1,50 @@
 <hr>
 <div class="container">
-<% breadcrumb :post %>
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
+  <% breadcrumb :post %>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
       <%= image_tag @post.image.variant(resize:'800x800').processed %>
       <br>
       <br>
       <br>
-      <h1 class="text-center">
-      <strong><%= @post.title %></strong>
-    </h1>
-    <div class="row">
-    
-    <div class="col-4 align-self-center">
-    
-    <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
-    <div class="col-2">
-      <% if @post.user.image.attached? %>
-      <%= image_tag @post.user.image, class:"avatar m-4"%>
-      <% else %>
-      <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
-      <% end %>
+      <h2 class="font-weight-bold mb-1">
+      <%= @post.title %>
+      </h2>
+      <div class="m-2">
+            <%= render partial: 'posts/posts',  locals: { post: @post }%>
       </div>
-        <p class="h3 text-bold text-muted"><%= @post.user.nickname %></p>
+  <div class="row mt-2"> 
+    <div class="col">
+      <a href="/users/<%= @post.user.id %>", class="d-flex justify-content-start align-items-center", style="text-decoration: none">
+        <% if @post.user.image.attached? %>
+        <%= image_tag @post.user.image, class:"avatar m-1"%>
+        <% else %>
+        <%= image_tag ("defo.jpg"), class:"avatar m-1"%>
+        <% end %>
+        <div class="flex-column">
+        <p class="h4 text-bold text-muted "><%= @post.user.nickname %></p>
+      <span class="text-muted small">投稿日時：<%= @post.created_at.to_s(:datetime_jp) %></span>
+        </div>
       </a>
-        <%= render 'posts/tag_list', tag_list: @post.tag_list %>
-      <%= render partial: 'posts/posts',  locals: { post: @post } %>
     </div>
-      </div>
-    <%= @post.content %>
+  </div>
+  <div class="mt-4">
+      <%= @post.content %>
+
+  </div>
     </div>
   </div>
 </div>
-<hr>
 <div class="container ">
-<div class="col text-center text-muted mb-3">
+<hr>
+<div class="col text-center text-muted mb-4">
+    <h4>タグ</h4> <%= @comments_count %>
+</div>
+<div class="col-8 mx-auto">
+        <%= render 'posts/tag_list', tag_list: @post.tag_list %>
+    </div>
+    <hr>
+<div class="col text-center text-muted mb-4">
     <h4>コメント</h4> <%= @comments_count %>
 </div>
   <div class="col-8 mx-auto">
