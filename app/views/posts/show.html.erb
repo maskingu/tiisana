@@ -1,75 +1,86 @@
 <hr>
 <div class="container">
-<% breadcrumb :post %>
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <%= image_tag @post.image.variant(resize:'800x800').processed %>
-      <br>
-      <br>
-      <br>
-      <h1 class="text-center">
-      <strong><%= @post.title %></strong>
-    </h1>
+  <% breadcrumb :post %>
     <div class="row">
-    
-    <div class="col-4 align-self-center">
-    
-    <a href="/users/<%= @post.user.id %>", class="h5", style="text-decoration: none">
-    <div class="col-2">
-      <% if @post.user.image.attached? %>
-      <%= image_tag @post.user.image, class:"avatar m-4"%>
-      <% else %>
-      <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
-      <% end %>
+      <div class="col-md-8 offset-md-2 ">
+      <div class="col-10 mx-auto offset-md-2">
+              <%= image_tag @post.image.variant(resize:'700x500').processed %>
       </div>
-        <p class="h3 text-bold text-muted"><%= @post.user.nickname %></p>
+        <br>
+        <br>
+        <br>
+        <h2 class="font-weight-bold mb-1">
+        <%= @post.title %>
+        </h2>
+      <div class="m-2">
+        <%= render partial: 'posts/posts',  locals: { post: @post }%>
+      </div>
+  <div class="row mt-2"> 
+    <div class="col">
+      <a href="/users/<%= @post.user.id %>", class="d-flex justify-content-start align-items-center", style="text-decoration: none">
+        <% if @post.user.image.attached? %>
+          <%= image_tag @post.user.image, class:"avatar m-1"%>
+        <% else %>
+          <%= image_tag ("defo.jpg"), class:"avatar m-1"%>
+        <% end %>
+        <div class="flex-column">
+          <p class="h4 text-bold text-muted "><%= @post.user.nickname %></p>
+          <span class="text-muted small">投稿日時：<%= @post.created_at.to_s(:datetime_jp) %></span>
+        </div>
       </a>
-        <%= render 'posts/tag_list', tag_list: @post.tag_list %>
-      <%= render partial: 'posts/posts',  locals: { post: @post } %>
     </div>
-      </div>
+  </div>
+  <div class="mt-4">
     <%= @post.content %>
+  </div>
     </div>
   </div>
 </div>
-<hr>
 <div class="container ">
-<div class="col text-center text-muted mb-3">
-    <h4>コメント</h4> <%= @comments_count %>
-</div>
+  <hr>
+  <div class="col text-center text-muted mb-4">
+    <h4>タグ</h4> <%= @comments_count %>
+  </div>
   <div class="col-8 mx-auto">
-<% if @comments %>
-    <% @comments.each do |comment| %>
-      <% if user_signed_in? %>
-        <p>
-        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+    <%= render 'posts/tag_list', tag_list: @post.tag_list %>
+  </div>
+    <hr>
+  <div class="col text-center text-muted mb-4">
+    <h4>コメント</h4> <%= @comments_count %>
+  </div>
+  <div class="col-8 mx-auto">
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <% if user_signed_in? %>
+          <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
         <%= comment.text %>
-        </p>
-    <% else %>
-      <p>
+          </p>
+      <% else %>
+        <p>
         <strong> <%= comment.user.nickname %>：</strong>
         <%= comment.text %>
-      </p>
+        </p>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
       <div class="row ">
         <div class="col-8 mx-auto">
         <% if current_user %>
         <hr>
-            <%= form_with(model: [@post, @comment], local: true) do |form| %>
-              <div class="form-group mt-3">
-                <%= form.text_area :text, placeholder: "コメント", rows: "2", class: "form-control" %>
-                <div class="text-right">
-                  <%= form.submit "SEND", class: "btn btn-outline-secondary "%> <% end %>
-                </div>
+          <%= form_with(model: [@post, @comment], local: true) do |form| %>
+            <div class="form-group mt-3">
+              <%= form.text_area :text, placeholder: "コメント", rows: "2", class: "form-control" %>
+              <div class="text-right">
+                <%= form.submit "SEND", class: "btn btn-outline-secondary "%> <% end %>
               </div>
-            <% else %>
-            <strong><p class="text-center">※※※ コメントするにはログインしてください ※※※</p></strong>
+            </div>
+          <% else %>
+          <strong><p class="text-center">※※※ コメントするにはログインしてください ※※※</p></strong>
           <% end %> 
         </div>
       </div>
-      <% end %>
+        <% end %>
     </div>
   </div>
 <div class="container" style="margin-bottom:200px;">
