@@ -13,6 +13,9 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
+    if params[:tag_name]
+      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
+    end
   end
 
   def new

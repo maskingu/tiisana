@@ -8,35 +8,44 @@
     <% breadcrumb :root %>
 <div class="container">
   <div class="row">
-        <div class="col-md-8">
-
+        <div class="col-md-7 offset-md-1">
     <% @posts.each do |post| %>
-        <div class="card mb-4">
-          <%= image_tag post.image, size: "750x300", class: "card-img-top " %>
+        <div class="card border-light mb-4">
+          <%= image_tag post.image.variant(resize:'500x400').processed, class: "card-img-top " %>
           <div class="card-body">
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%></p>
-            <a href="/users/<%= post.user.id %>", class="h5", style="text-decoration: none">
-            <% if post.user.image.attached? %>
-              <%= image_tag post.user.image, class:"avatar m-4"%>
-            <% else %>
-              <%= image_tag ("defo.jpg"), class:"avatar m-4"%>
-            <% end %>
-            <div class="col-6 align-self-center">
-              <p class="h3 text-bold text-muted"><%= post.user.nickname %></p>
-              </a>
-            <%= render partial: 'posts/posts',  locals: { post: post } %>
-          </div>
-          <%= render 'posts/tag_list', tag_list: post.tag_list %>
+            <div class="m-2">
+        <%= render partial: 'posts/posts',  locals: { post: post }%>
+      </div>
+    <div class="col">
+      <a href="/users/<%= post.user.id %>", class="d-flex justify-content-start align-items-center", style="text-decoration: none">
+        <% if post.user.image.attached? %>
+          <%= image_tag post.user.image, class:"avatar m-1"%>
+        <% else %>
+          <%= image_tag ("defo.jpg"), class:"avatar m-1"%>
+        <% end %>
+        <div class="flex-column">
+          <p class="h4 text-bold text-muted "><%= post.user.nickname %></p>
+          <span class="text-muted small">投稿日時：<%= post.created_at.to_s(:datetime_jp) %></span>
+        </div>
+      </a>
+    </div>
+      </div>
+            <div class="card-footer text-muted">投稿日時：<%= post.created_at.to_s(:datetime_jp) %>
             <div class="field">
               <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control" %>
             </div>
-            <div class="card-footer text-muted">投稿日時：<%= post.created_at.to_s(:datetime_jp) %>
             </div>
-          </div>
         </div>
-        
+      
       <% end %>
+      </div>
+      <div class="col-md-4">
+      wwwww
+      </div>
+    </div>
+
 <%= paginate @posts %>
 
 
