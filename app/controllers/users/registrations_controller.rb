@@ -39,9 +39,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
   # アカウント編集後、プロフィール画面に移動する
   def after_update_path_for(resource)
-    user_path(id: current_user.id)
+    user_path(@user.id)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

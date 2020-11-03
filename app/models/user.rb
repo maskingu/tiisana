@@ -21,7 +21,7 @@ class User < ApplicationRecord
           EMAIL_REGEX = /@+/.freeze
           validates :email, uniqueness: { case_sensitive: true }, format: { with: EMAIL_REGEX, message: '@を使用してください' }
           PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-          validates :password, confirmation: true, length: { minimum: 6 }, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }
+          validates :password, confirmation: true, on: :create ,length: { minimum: 6 }, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }
         end
 
         def follow(other_user)
@@ -40,4 +40,6 @@ class User < ApplicationRecord
         def following?(other_user)
           self.followings.include?(other_user)
         end
+        
 end
+
