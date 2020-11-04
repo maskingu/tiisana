@@ -32,6 +32,7 @@
   </div>
   <div class="mt-4">
     <%= @post.content %>
+
   </div>
     </div>
   </div>
@@ -49,18 +50,31 @@
     <h4>コメント</h4> <%= @comments_count %>
   </div>
   <div class="col-8 mx-auto">
+
     <% if @comments %>
       <% @comments.each do |comment| %>
         <% if user_signed_in? %>
-          <p>
-          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+        <div class="row">
+        <p>
+        <div class="col">
+        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
         <%= comment.text %>
+        <% if current_user.id == comment.user_id %>
+        </div>
+        <div class="col-1">
+        <%= link_to "削除", post_comment_path(@post, comment), method: :delete , class: "btn btn-outline-secondary btn-sm "%>
+        </div>
+        <% end %>
           </p>
+        </div>
+          
       <% else %>
         <p>
         <strong> <%= comment.user.nickname %>：</strong>
         <%= comment.text %>
+
         </p>
+        
       <% end %>
     <% end %>
   </div>

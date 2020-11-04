@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(10)
     @post = Post.includes(:user)
     if params[:tag_name]
-      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
+      @posts = Post.tagged_with(params[:tag_name]).page(params[:page]).per(10)
     end
       @tags = Post.tag_counts_on(:tags).order('count DESC')
 
