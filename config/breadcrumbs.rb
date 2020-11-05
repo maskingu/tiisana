@@ -7,6 +7,11 @@ crumb :post do
   parent :root
 end
 
+crumb :edit_post do
+  link  "記事編集", user_path
+  parent :post
+end
+
 crumb :user do
   link "ユーザー詳細", user_path
   parent :post
