@@ -1,65 +1,62 @@
+  </nav>
+
 <div class="bg-sample"></div>
 <h3 class="text-lg-center mt-5">地球と人のつながりをもっと身近なものに。</h3>
     <p class="text-lg-center text-muted">みんなの投稿で普段の生活をもっと未来につなげよう</p>
     <br>
     <br>
     <hr>
-
     <% breadcrumb :root %>
 <div class="container">
-  <div class="row">
-        <div class="col-md-8">
+    
     <% @posts.each do |post| %>
-        <div class="card mb-4">
+      <div class="row">
+    <div class="col-md-8">
+        <div class="card mt-3">
+    <div class="card-body p-0">
           <%= image_tag post.image.variant(resize:'300x400').processed, class: "card-img-top "%>
-          <div class="card-body">
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%></p>
             <div class="m-2">
-        <%= render partial: 'posts/posts',  locals: { post: post }%>
-      </div>
-    <div class="col">
-      <a href="/users/<%= post.user.id %>", class="d-flex justify-content-start align-items-center", style="text-decoration: none">
-        <% if post.user.image.attached? %>
-          <%= image_tag post.user.image, class:"avatar m-1"%>
-        <% else %>
-          <%= image_tag ("defo.jpg"), class:"avatar m-1"%>
-        <% end %>
+            <%= render partial: 'posts/posts',  locals: { post: post }%>
+            </div>
+          <a href="/users/<%= post.user.id %>", class="d-flex justify-content-start align-items-center" , style="text-decoration: none">
+            <% if post.user.image.attached? %>
+            <%= image_tag post.user.image, class:"avatar m-1"%>
+            <% else %>
+            <%= image_tag ("defo.jpg"), class:"avatar m-1"%>
+            <% end %>
         <div class="flex-column">
           <p class="h4 text-bold text-muted "><%= post.user.nickname %></p>
           <span class="text-muted small">投稿日時：<%= post.created_at.to_s(:datetime_jp) %></span>
         </div>
-      </a>
-    </div>
+          </a>
+          <div class="field card-footer text-muted">
+            <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control " %>
+          </div>
       </div>
-            <div class="card-footer text-muted">
-            <div class="field">
-              <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control " %>
-            </div>
-            </div>
         </div>
-      
-      <% end %>
+        </div>
+        <% end %>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">タグ一覧</h5>
+        <h6 class="card-subtitle mb-2 text-muted">クリックで関連した記事が見れます</h6>
+        <% @tags.each do |tag| %>
+        <span class="badge badge-pill badge-info m-1 p-2">
+          <%= link_to tag.name, posts_path(tag_name: tag.name), class: "text-white"%>
+        </span>
+        <% end %>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
       </div>
-      <div class="col-md-4">
-      <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">タグ一覧</h5>
-    <h6 class="card-subtitle mb-2 text-muted">クリックで関連した記事が見れます</h6>
-
-<% @tags.each do |tag| %>
-  <span class="badge badge-pill badge-info m-1 p-2">
-    <%= link_to tag.name, posts_path(tag_name: tag.name), class: "text-white"%>
-      </span>
-<% end %>
-
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
   </div>
 </div>
-      </div>
-    </div>
 <%= paginate @posts %>
-<div class="container" style="margin-bottom:100px;">
+<div class="container" style="margin-bottom:100px;"></div>
 
 

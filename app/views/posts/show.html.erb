@@ -1,23 +1,17 @@
 <hr>
 <div class="container">
   <% breadcrumb :post %>
-    <div class="row">
-      <div class="col-md-8 offset-md-2 ">
-      <div class="col-10 mx-auto offset-md-2">
-              <%= image_tag @post.image.variant(resize:'700x500').processed %>
-      </div>
+      <div class="col-8 mx-auto">
+          <%= image_tag @post.image.variant(resize:'600x500').processed %>
         <br>
         <br>
         <br>
         <h2 class="font-weight-bold mb-1">
         <%= @post.title %>
         </h2>
-      <div class="m-2">
-        <%= render partial: 'posts/posts',  locals: { post: @post }%>
-      </div>
-  <div class="row mt-2"> 
-    <div class="col">
-      <a href="/users/<%= @post.user.id %>", class="d-flex justify-content-start align-items-center", style="text-decoration: none">
+        <%= render partial: 'posts/posts',  locals: { post: @post }, class:"m-2"%>
+<div class="col-8 mx-auto">
+      <a href="/users/<%= @post.user.id %>", class="d-flex", style="text-decoration: none">
         <% if @post.user.image.attached? %>
           <%= image_tag @post.user.image, class:"avatar m-1"%>
         <% else %>
@@ -28,13 +22,11 @@
           <span class="text-muted small">投稿日時：<%= @post.created_at.to_s(:datetime_jp) %></span>
         </div>
       </a>
-    </div>
+      </div>
+      <div class="card ">
+  <%= @post.content %>
   </div>
-  <div class="mt-4">
-    <%= @post.content %>
-
   </div>
-    </div>
   </div>
 </div>
 <div class="container ">
@@ -56,31 +48,29 @@
         <% if user_signed_in? %>
         <div class="row">
         <p>
-        <div class="col">
+        <div class="col-10">
         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
         <%= comment.text %>
         <% if current_user.id == comment.user_id %>
         </div>
-        <div class="col-1">
+        <div class="col-2">
         <%= link_to "削除", post_comment_path(@post, comment), method: :delete , class: "btn btn-outline-secondary btn-sm "%>
         </div>
         <% end %>
           </p>
         </div>
-          
       <% else %>
         <p>
         <strong> <%= comment.user.nickname %>：</strong>
         <%= comment.text %>
-
         </p>
-        
       <% end %>
     <% end %>
-  </div>
+    
+    <% if current_user %>
+    <div class="container ">
       <div class="row ">
-        <div class="col-8 mx-auto">
-        <% if current_user %>
+        <div class="col mx-auto">
         <hr>
           <%= form_with(model: [@post, @comment], local: true) do |form| %>
             <div class="form-group mt-3">
@@ -92,9 +82,9 @@
           <% else %>
           <strong><p class="text-center">※※※ コメントするにはログインしてください ※※※</p></strong>
           <% end %> 
+          <% end %>
         </div>
       </div>
-        <% end %>
     </div>
   </div>
 <div class="container" style="margin-bottom:200px;">
