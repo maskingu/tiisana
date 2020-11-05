@@ -18,8 +18,12 @@
           <%= render 'relationships/follow_button', user: @user %>
         </div>
       </div>
-      <div class="col-md-6 offset-md-2">
-      <span>プロフィール : <%= @user.profile %></span>
+      <div class="card">
+      <div class="card-body">
+      <h6 class="card-title">プロフィール</h6>
+      <p class="card-text small"><%= @user.profile %></p>
+      </div>
+      </div>
       </div>
   <%= render 'stats' %>
   </div>
