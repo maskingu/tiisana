@@ -7,7 +7,6 @@
     <hr>
     <% breadcrumb :root %>
 
-<body>
   <div class="container">
 
     <div class="row">
@@ -17,7 +16,7 @@
 
         <% @posts.each do |post| %>
         <div class="card mb-4">
-        <%= image_tag post.image.variant(resize:'500x400').processed, class: "card-img-top "%>
+        <%= image_tag post.image.variant(resize:'750x300').processed, class: "card-img-top "%>
           <div class="card-body">
           
             <h2 class="card-title"><%= post.title %></h2>
@@ -81,11 +80,6 @@
         </div>
           </div>
         </div>
-
-        
-
-      
-
     </div>
 
   </div>
@@ -94,4 +88,3 @@
 
 
 
-</body>
