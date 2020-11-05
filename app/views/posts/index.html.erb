@@ -8,19 +8,18 @@
     <% breadcrumb :root %>
 <div class="container">
     <div class="row">
-    <div class="col-lg-8">
+    
     <% @posts.each do |post| %>
-              
-
+              <div class="col-md-8">
         <div class="card mt-3">
     <div class="card-body p-0">
-          <%= image_tag post.image.variant(resize:'300x400').processed, class: "card-img-top "%>
+          <%= image_tag post.image.variant(resize:'500x400').processed, class: "card-img-top "%>
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%></p>
             <div class="m-2">
             <%= render partial: 'posts/posts',  locals: { post: post }%>
             </div>
-          <a href="/users/<%= post.user.id %>", class="d-flex justify-content-start align-items-center" , style="text-decoration: none">
+          <a href="/users/<%= post.user.id %>" class="d-flex justify-content-start align-items-center" style="text-decoration: none">
             <% if post.user.image.attached? %>
             <%= image_tag post.user.image, class:"avatar m-1"%>
             <% else %>
@@ -36,10 +35,11 @@
           </div>
       </div>
         </div>
-        
+        </div>
         <% end %>
   </div>
-  <div class="col-lg-4">
+  <div class="row">
+  <div class="col-md-4">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">タグ一覧</h5>
@@ -53,11 +53,8 @@
         <a href="#" class="card-link">Another link</a>
       </div>
     </div>
-    </div>
   </div>
-  
-</div>
-</div>
+    </div>
 <%= paginate @posts %>
 <div class="container" style="margin-bottom:100px;"></div>
 
