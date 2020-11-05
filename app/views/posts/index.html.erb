@@ -6,21 +6,26 @@
     <br>
     <hr>
     <% breadcrumb :root %>
-<div class="container">
-    <div class="row">
-    <div class="col-lg-8">
-    <% @posts.each do |post| %>
-              
 
-        <div class="card mt-3">
-    <div class="card-body p-0">
-          <%= image_tag post.image.variant(resize:'300x400').processed, class: "card-img-top "%>
+<body>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-8">
+
+
+        <% @posts.each do |post| %>
+        <div class="card mb-4">
+        <%= image_tag post.image.variant(resize:'500x400').processed, class: "card-img-top "%>
+          <div class="card-body">
+          
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%></p>
             <div class="m-2">
             <%= render partial: 'posts/posts',  locals: { post: post }%>
             </div>
-          <a href="/users/<%= post.user.id %>", class="d-flex justify-content-start align-items-center" , style="text-decoration: none">
+            <a href="/users/<%= post.user.id %>" class="d-flex justify-content-start align-items-center" style="text-decoration: none">
             <% if post.user.image.attached? %>
             <%= image_tag post.user.image, class:"avatar m-1"%>
             <% else %>
@@ -31,34 +36,62 @@
           <span class="text-muted small">投稿日時：<%= post.created_at.to_s(:datetime_jp) %></span>
         </div>
           </a>
+
+          </div>
           <div class="field card-footer text-muted">
             <%= link_to '詳細ページ', post, class: "btn btn-outline-secondary form-control " %>
           </div>
+        </div>
+<% end %>
+
       </div>
+
+      <div class="col-md-4">
+
+        <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+          <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+            <div class="input-group">
+                  <%= form.text_field :keyword, class: "search-form navop form-control" %>
+              <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-light mr-1" %>
+            </div>
+            <% end %>
+          </div>
         </div>
         
-        <% end %>
-  </div>
-  <div class="col-lg-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">タグ一覧</h5>
-        <h6 class="card-subtitle mb-2 text-muted">クリックで関連した記事が見れます</h6>
-        <% @tags.each do |tag| %>
+        <div class="card my-4">
+          <h5 class="card-header">Tags</h5>
+          <div class="card-body">
+            
+                <% @tags.each do |tag| %>
         <span class="badge badge-pill badge-info m-1 p-2">
           <%= link_to tag.name, posts_path(tag_name: tag.name), class: "text-white"%>
         </span>
         <% end %>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
+                  
+                
+              </div>
+            </div>
+            <div class="card my-4">
+          <h5 class="card-header">Side Widget</h5>
+          <div class="card-body">
+            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+          </div>
+        </div>
+          </div>
+        </div>
+
+        
+
+      
+
     </div>
-    </div>
+
   </div>
-  
-</div>
-</div>
 <%= paginate @posts %>
 <div class="container" style="margin-bottom:100px;"></div>
 
 
+
+</body>

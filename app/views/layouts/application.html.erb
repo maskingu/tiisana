@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+<html lang="ja">
 <html>
   <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Tiisana</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -28,7 +31,7 @@
     </div>
       </div>
   <% end %>
-
+</ul>
   <% if user_signed_in? %>  
   <li class="nav-item mr-2 ">
     <%= link_to "新規投稿", new_post_path, class: "nav-alink btn btn-light " %>
@@ -43,8 +46,8 @@
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item", type:"button"%>
       </div>
     </div>
+    </li>
     <ul>
-      </li>
         <% else %> 
         <li class="nav-item mr-2">
         <%= link_to "ログイン", new_user_session_path, class: "nav-alink btn btn-light" %>
