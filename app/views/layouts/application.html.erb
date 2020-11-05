@@ -15,8 +15,8 @@
 
   <body>
   <nav class="navbar navbar-light navbar-expand-md ">
-    <a class="navbar-brand text-primary" href="/">
-      <div class="h1">Tiisana</div>
+    <a class="navbar-brand text-primary", class="h1" href="/">
+      <div class="h3">Tiisana</div>
     </a>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
@@ -26,8 +26,9 @@
       <%= form.text_field :keyword, class: "search-form navop form-control" %>
       <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-light mr-1" %>
     </div>
+      </div>
   <% end %>
-</div>
+
   <% if user_signed_in? %>  
   <li class="nav-item mr-2 ">
     <%= link_to "新規投稿", new_post_path, class: "nav-alink btn btn-light " %>
@@ -37,18 +38,17 @@
         <button class="nav-alink btn btn-light dropdown-toggle" data-toggle="dropdown" href="/" aria-haspopup="true" aria-expanded="false"><%= current_user.nickname %>
         </button>
       <div class="dropdown-menu dropdown-menu-right">
-      <a><%= link_to "マイページ", "/users/#{current_user.id}", class: "dropdown-item", type:"button"%></a>
-      <a><%= link_to "プロフィール編集",  edit_user_registration_path, class: "dropdown-item", type:"button"%></a>
-      <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item", type:"button"%></a>
+        <%= link_to "マイページ", "/users/#{current_user.id}", class: "dropdown-item", type:"button"%>
+        <%= link_to "プロフィール編集",  edit_user_registration_path, class: "dropdown-item", type:"button"%>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item", type:"button"%>
       </div>
     </div>
-    </li>
-    </ul>
     <ul>
+      </li>
         <% else %> 
         <li class="nav-item mr-2">
-        <a><%= link_to "ログイン", new_user_session_path, class: "nav-alink btn btn-light" %></a>
-        <a><%= link_to "新規登録", new_user_registration_path, class: "nav-alink btn btn-light"%></a>
+        <%= link_to "ログイン", new_user_session_path, class: "nav-alink btn btn-light" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-alink btn btn-light"%>
       </li>
     </ul>
     <% end %>
