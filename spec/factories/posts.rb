@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    content { Faker::Lorem.sentence}
+    content { Faker::Lorem.sentence }
     title {Faker::Lorem.sentence}
     association :user
   end
