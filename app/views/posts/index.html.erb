@@ -7,7 +7,6 @@
     <hr>
     <% breadcrumb :root %>
 
-<body>
   <div class="container">
 
     <div class="row">
@@ -17,7 +16,7 @@
 
         <% @posts.each do |post| %>
         <div class="card mb-4">
-        <%= image_tag post.image.variant(resize:'500x400').processed, class: "card-img-top "%>
+        <%= image_tag post.image.variant(resize:'750x300').processed, class: "card-img-top "%>
           <div class="card-body">
           
             <h2 class="card-title"><%= post.title %></h2>
@@ -73,19 +72,8 @@
                 
               </div>
             </div>
-            <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
-          <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
           </div>
         </div>
-          </div>
-        </div>
-
-        
-
-      
-
     </div>
 
   </div>
@@ -94,4 +82,3 @@
 
 
 
-</body>
