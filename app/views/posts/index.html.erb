@@ -6,19 +6,13 @@
     <br>
     <hr>
     <% breadcrumb :root %>
-
   <div class="container">
-
     <div class="row">
-
       <div class="col-md-8">
-
-
         <% @posts.each do |post| %>
         <div class="card mb-4">
         <%= image_tag post.image.variant(resize:'750x300').processed, class: "card-img-top "%>
           <div class="card-body">
-          
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%></p>
             <div class="m-2">
@@ -42,11 +36,8 @@
           </div>
         </div>
 <% end %>
-
       </div>
-
       <div class="col-md-4">
-
         <div class="card my-4">
           <h5 class="card-header">Search</h5>
           <div class="card-body">
@@ -68,10 +59,32 @@
           <%= link_to tag.name, posts_path(tag_name: tag.name), class: "text-white"%>
         </span>
         <% end %>
-                  
-                
               </div>
             </div>
+            <div class="font-weight-bold mb-3">
+            人気記事トップ３
+            </div>
+            <% @all_ranks.each.with_index(1) do |pos,i| %>
+            第<%= i %>位
+              <a href="/posts/<%= pos.id %>"  class="card mb-3" style="text-decoration: none">
+  <div class="row no-gutters">
+    <div class="col-md-6">
+      <%= image_tag pos.image.variant(resize:'750x300').processed, class: "card-img-top "%>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+<p class="card-title text-muted ">記事タイトル</p>
+        <p class="card-title">
+        <div class="font-weight-bold text-muted">
+        <%= pos.title.truncate(20) %>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>
+</a>
+
+            <% end %>
           </div>
         </div>
     </div>

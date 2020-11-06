@@ -3,14 +3,14 @@
 <div class="container">
   <div class="row">
     <div class="col-8 mx-auto">
-      <%= image_tag @post.image.variant(resize:'700x600').processed , class:"ml-3"%>
+      <%= image_tag @post.image.variant(resize:'700x600').processed , class:"ml-3 mb-4"%>
       <br>
       <br>
-      <h2 class="font-weight-bold mb-1">
+      <h2 class="font-weight-bold mb-3">
       <%= @post.title %>
       </h2>
-      <%= render partial: 'posts/posts',  locals: { post: @post }, class:"m-2"%>
-    <a href="/users/<%= @post.user.id %>", class="d-flex", style="text-decoration: none">
+      <%= render partial: 'posts/posts',  locals: { post: @post }%>
+    <a href="/users/<%= @post.user.id %>", class="d-flex mt-3", style="text-decoration: none">
       <% if @post.user.image.attached? %>
         <%= image_tag @post.user.image, class:"avatar m-1"%>
       <% else %>
@@ -21,7 +21,7 @@
         <span class="text-muted small">投稿日時：<%= @post.created_at.to_s(:datetime_jp) %></span>
       </div>
     </a>
-      <div class="card">
+      <div class="card border-light mt-5">
       <%= @post.content %>
       </div>
     </div>

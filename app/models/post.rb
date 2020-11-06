@@ -12,14 +12,18 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   scope :searchtext, lambda { |search_param = nil|
-                       if search_param
-                         return if search_param.blank?
+                      if search_param
+                        return if search_param.blank?
 
-                         joins("INNER JOIN action_text_rich_texts ON action_text_rich_texts.record_id = posts.id AND action_text_rich_texts.record_type = 'Post'")
-                           .where('action_text_rich_texts.body LIKE ? OR posts.title LIKE ? ', "%#{search_param}%", "%#{search_param}%")
+                        joins("INNER JOIN action_text_rich_texts ON action_text_rich_texts.record_id = posts.id AND action_text_rich_texts.record_type = 'Post'")
+                          .where('action_text_rich_texts.body LIKE ? OR posts.title LIKE ? ', "%#{search_param}%", "%#{search_param}%")
 
-                       else
-                         all
-                       end
-                     }
+                      else
+                        all
+                      end
+                    }
+
+def self.create_all_ranks
+  Post.find(Like.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+end
 end
