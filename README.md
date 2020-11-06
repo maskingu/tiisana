@@ -35,11 +35,11 @@ Things you may want to cover:
 | profile       | text     | null: false |
 
 ### Association
-
-- has_many :posts
-- has_many :comments
-- has_many :likes
-- has_many :like_posts
+- has_one_attached :image
+- has_many :posts, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :like_posts, through: :likes, source: :post
 - has_many :relationships
 - has_many :followings, through: :relationships, source: :follow
 - has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
@@ -79,34 +79,13 @@ Things you may want to cover:
 
 
 ## Association
-
+- has_rich_text :content
+- has_one_attached :image
 - belongs_to :user
-- has_many :comments
+- has_many :comments, dependent: :destroy
 - has_many :tags, through: :post_tags
 - has_many :likes, dependent: :destroy
 - has_many :liking_users, through: :likes, source: :user
-
-# post-tags_relations テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| post   | references | foreign_key: true              |
-| tag    | references | foreign_key: true              |
-
-## Association
-
-- belongs_to :post
-- belongs_to :tag
-
-# tags テーブル
-
-| Column | Type    | Options                      |
-| ------ | --------| ---------------------------- |
-| name   | string  | null:false, uniqueness: true |
-
-## Association
-
-- has_many :posts, through: :post_tags
 
 # likes テーブル
 
