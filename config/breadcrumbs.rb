@@ -7,10 +7,12 @@ crumb :post do
   parent :root
 end
 
-crumb :user do
-  link "ユーザー詳細", user_path
+crumb :user do |user|
+  link user.nickname, user_path(user)
   parent :post
 end
+
+
 
 crumb :following_user do
   link "フォロ一", following_user_path
@@ -21,6 +23,7 @@ crumb :followers_user do
   link "フォロワー", followers_user_path
   parent :user
 end
+
 
 
 
