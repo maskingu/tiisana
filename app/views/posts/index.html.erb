@@ -38,7 +38,6 @@
 <% end %>
       </div>
       <div class="col-md-4">
-
         <div class="card my-4">
           <h5 class="card-header">Search</h5>
           <div class="card-body">
@@ -60,10 +59,23 @@
           <%= link_to tag.name, posts_path(tag_name: tag.name), class: "text-white"%>
         </span>
         <% end %>
-                  
-                
               </div>
             </div>
+            <% @all_ranks.each do |post| %>
+              <a href="/posts/<%= post.id %>"  class="card mb-3" style="max-width: 400px;">
+  <div class="row no-gutters">
+    <div class="col-md-6">
+      <%= image_tag post.image.variant(resize:'750x300').processed, class: "card-img-top "%>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <p class="card-title"><%= post.title %></p>
+      </div>
+    </div>
+  </div>
+</a>
+
+            <% end %>
           </div>
         </div>
     </div>

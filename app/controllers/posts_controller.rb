@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     @post = Post.includes(:user)
     @posts = Post.tagged_with(params[:tag_name]).page(params[:page]).per(10) if params[:tag_name]
     @tags = Post.tag_counts_on(:tags).order('count DESC')
+    @all_ranks = Post.create_all_ranks
   end
 
   def show
