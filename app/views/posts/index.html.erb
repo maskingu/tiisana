@@ -6,19 +6,13 @@
     <br>
     <hr>
     <% breadcrumb :root %>
-
   <div class="container">
-
     <div class="row">
-
       <div class="col-md-8">
-
-
         <% @posts.each do |post| %>
         <div class="card mb-4">
         <%= image_tag post.image.variant(resize:'750x300').processed, class: "card-img-top "%>
           <div class="card-body">
-          
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= strip_tags(post.content.to_s).gsub(/[\n]/,"").strip.truncate(20)%></p>
             <div class="m-2">
@@ -42,9 +36,7 @@
           </div>
         </div>
 <% end %>
-
       </div>
-
       <div class="col-md-4">
 
         <div class="card my-4">
