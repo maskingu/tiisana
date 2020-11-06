@@ -2,8 +2,8 @@
   <% breadcrumb :post %>
 <div class="container">
   <div class="row">
-    <div class="col-md-7 offset-3">
-      <%= image_tag @post.image.variant(resize:'700x500').processed %>
+    <div class="col-8 mx-auto">
+      <%= image_tag @post.image.variant(resize:'700x600').processed , class:"ml-3"%>
       <br>
       <br>
       <h2 class="font-weight-bold mb-1">
@@ -27,7 +27,7 @@
     </div>
   </div>
 </div>
-<div class="container col-md-7 offset-3">
+<div class="container col-md-6">
   <hr>
   <div class="text-center text-muted mb-4">
     <h4>タグ</h4> <%= @comments_count %>

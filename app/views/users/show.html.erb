@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       <% @posts.each do |post| %>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="card text-center h-100">
           <td><%= image_tag post.image.variant(resize:'300x200'), class: "card-img-top" %></td>
           <h4 class="card-text"><%= post.title %></h4>
