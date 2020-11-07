@@ -41,7 +41,19 @@ https://tiisana.herokuapp.com/
 
 # 使用技術（開発環境）
 ## バックエンド
-
+Ruby, Ruby on Rails  
+## フロントエンド
+Bootstrap4  
+## データ・ベース
+MySQL, Sequel Pro
+## インフラ
+Heroku
+## ソース管理
+GitHub, GitHubDesktop
+## テスト
+RSpec
+## エディタ
+VSCode
 
 
 Things you may want to cover:
