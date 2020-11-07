@@ -55,7 +55,7 @@ https://tiisana.herokuapp.com/
 ## バックエンド
 Ruby, Ruby on Rails  
 ## フロントエンド
-Bootstrap4  
+Bootstrap4, JavaScript, Ajax
 ## データ・ベース
 MySQL, Sequel Pro
 ## インフラ
