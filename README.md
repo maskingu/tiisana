@@ -14,8 +14,8 @@ https://tiisana.herokuapp.com/
 
 ログイン情報(テスト用)  
 
-- 
-- 
+- Eメール :hogehoge@hoge
+- パスワード :111111q
 
 
 # 制作背景
