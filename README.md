@@ -1,4 +1,7 @@
-# README
+# Tiisana
+
+普段の生活に取り入れるだけで環境に優しくそして未来にも繋がる、そんな情報が行き交う場所として制作した記事の投稿サイトです。
+
 
 
 Things you may want to cover:
