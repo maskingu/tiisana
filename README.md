@@ -46,6 +46,7 @@ Things you may want to cover:
 ## Relationship テーブル
 
 | Column                               | Type       | Options                       |
+| ------------------------------------ | ---------- | ----------------------------- |
 | user                                 | integer    | references                    |
 | follow                               | integer    | references                    |
 | [:user_id, :follow_id], unique: true | index      | foreign_key:{to_table: users} |
