@@ -8,7 +8,7 @@
         <div class="row" >
         <ul class="list-group col-md-8 offset-md-2 ">
         <li class="list-group-item "><% if user.image.attached? %>
-          <%= image_tag @post.user.image, class:"avatar"%>
+          <%= image_tag user.image, class:"avatar"%>
           <% else %>
           <%= image_tag ("defo.jpg"), class:"avatar"%>
           <% end %>
