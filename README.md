@@ -39,8 +39,6 @@ https://tiisana.herokuapp.com/
 
 [![Image from Gyazo](https://i.gyazo.com/68ded253614fbe029a9cc2aff5482e03.jpg)](https://gyazo.com/68ded253614fbe029a9cc2aff5482e03)
 
-[![Image from Gyazo](https://i.gyazo.com/a45009ba9e3fc05e31088d1431b5cc99.gif)](https://gyazo.com/a45009ba9e3fc05e31088d1431b5cc99)
-
 # 工夫したポイント
 
 - 環境の為にできることと一言で言ってもその内容は多岐に分かるので各ユーザーは投稿した記事に対して好きなタグを付けれるようにしました。
