@@ -37,17 +37,18 @@ https://tiisana.herokuapp.com/
 
 # DEMO
 [![Image from Gyazo](https://i.gyazo.com/b1353626ae46d9a3dbfff1fa46dd2ae0.jpg)](https://gyazo.com/b1353626ae46d9a3dbfff1fa46dd2ae0)
+<br>
+<br>
 
 ## トップページ
 ![result-min (1)](https://user-images.githubusercontent.com/69751103/98460519-82788d80-21e8-11eb-914b-3116a1bb6f19.gif)
-
-
+<br>
+<br>
 
 ## 記事詳細画面
 ![result-min (3)](https://user-images.githubusercontent.com/69751103/98460725-257dd700-21ea-11eb-93b6-890e6c27356f.gif)
-
-
-
+<br>
+<br>
 ## ユーザーマイページ
 
 ## タグ検索
