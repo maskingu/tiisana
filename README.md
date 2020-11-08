@@ -55,6 +55,9 @@ https://tiisana.herokuapp.com/
 <br>
 
 ## タグ検索
+![result-min (2)](https://user-images.githubusercontent.com/69751103/98461239-ef425680-21ed-11eb-820c-5d7d09607b62.gif)
+<br>
+<br>
 
 # 工夫したポイント
 - 環境の為にできることと一言で言ってもその内容は多岐に分かるので各ユーザーは投稿した記事に対して好きなタグを付けれるようにしました。
