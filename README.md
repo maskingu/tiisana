@@ -1,6 +1,6 @@
 # アプリ名
 
-<span style="font-size: 200%;">Tiisana</span>
+### Tiisana
 
 # 概要
 
