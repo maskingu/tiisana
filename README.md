@@ -38,8 +38,14 @@ https://tiisana.herokuapp.com/
 # DEMO
 [![Image from Gyazo](https://i.gyazo.com/b1353626ae46d9a3dbfff1fa46dd2ae0.jpg)](https://gyazo.com/b1353626ae46d9a3dbfff1fa46dd2ae0)
 
+## トップページ
 ![result-min (1)](https://user-images.githubusercontent.com/69751103/98460519-82788d80-21e8-11eb-914b-3116a1bb6f19.gif)
 
+## 記事詳細画面
+
+## ユーザーマイページ
+
+## タグ検索
 
 # 工夫したポイント
 - 環境の為にできることと一言で言ってもその内容は多岐に分かるので各ユーザーは投稿した記事に対して好きなタグを付けれるようにしました。
