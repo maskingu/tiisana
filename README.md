@@ -36,8 +36,7 @@ https://tiisana.herokuapp.com/
 という思いを持つ人の問題を解決するために今回のアプリを作成致しました。 
 
 # DEMO
-
-[![Image from Gyazo](https://i.gyazo.com/40c3bc642d7e01003293f0bab2f7a6b7.gif)](https://gyazo.com/40c3bc642d7e01003293f0bab2f7a6b7)
+[![Image from Gyazo](https://i.gyazo.com/b1353626ae46d9a3dbfff1fa46dd2ae0.jpg)](https://gyazo.com/b1353626ae46d9a3dbfff1fa46dd2ae0)
 # 工夫したポイント
 - 環境の為にできることと一言で言ってもその内容は多岐に分かるので各ユーザーは投稿した記事に対して好きなタグを付けれるようにしました。
 トップページには投稿されているタグの一覧を表示して、そのタグをクリックすると関連した記事が表示されるようになっています。  
