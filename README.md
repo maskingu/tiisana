@@ -35,7 +35,7 @@ https://tiisana.herokuapp.com/
 
 # DEMO
 
-![画像名](./images/.jpg)
+![画像名](./defo/.jpg)
 
 
 
