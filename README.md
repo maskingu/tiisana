@@ -50,6 +50,9 @@ https://tiisana.herokuapp.com/
 <br>
 <br>
 ## 記事詳細画面からユーザーマイページへ
+![result-min](https://user-images.githubusercontent.com/69751103/98460974-23b51300-21ec-11eb-903e-d6bfa97a5623.gif)
+<br>
+<br>
 
 ## タグ検索
 
