@@ -40,6 +40,8 @@ https://tiisana.herokuapp.com/
 
 ![result](https://user-images.githubusercontent.com/69751103/98460056-1d229d80-21e4-11eb-9c3e-afd4f802c62a.gif)
 
+![result-min](https://user-images.githubusercontent.com/69751103/98460135-e00adb00-21e4-11eb-82b7-8536910412e4.gif)
+
 # 工夫したポイント
 - 環境の為にできることと一言で言ってもその内容は多岐に分かるので各ユーザーは投稿した記事に対して好きなタグを付けれるようにしました。
 トップページには投稿されているタグの一覧を表示して、そのタグをクリックすると関連した記事が表示されるようになっています。  
