@@ -49,7 +49,7 @@ https://tiisana.herokuapp.com/
 ![result-min (3)](https://user-images.githubusercontent.com/69751103/98460725-257dd700-21ea-11eb-93b6-890e6c27356f.gif)
 <br>
 <br>
-## ユーザーマイページ
+## 記事詳細画面からユーザーマイページへ
 
 ## タグ検索
 
