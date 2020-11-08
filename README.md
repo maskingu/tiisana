@@ -34,7 +34,8 @@ https://tiisana.herokuapp.com/
 という思いを持つ人の問題を解決するために今回のアプリを作成致しました。 
 
 # DEMO
-![トップページ](app/assets/images/top.png)
+![Uploading tiisanatop.png…]()
+
 
 
 
