@@ -35,7 +35,7 @@ https://tiisana.herokuapp.com/
 
 # DEMO
 
-![画像名](./defo/.jpg)
+[![Image from Gyazo](https://i.gyazo.com/ec5a62dcb167a2f48a40db3344f3e9ed.jpg)](https://gyazo.com/ec5a62dcb167a2f48a40db3344f3e9ed)
 
 
 
