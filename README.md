@@ -35,8 +35,7 @@ https://tiisana.herokuapp.com/
 
 # DEMO
 
-[![Image from Gyazo](https://i.gyazo.com/ec5a62dcb167a2f48a40db3344f3e9ed.jpg)](https://gyazo.com/ec5a62dcb167a2f48a40db3344f3e9ed)
-
+[![Image from Gyazo](https://i.gyazo.com/68ded253614fbe029a9cc2aff5482e03.jpg)](https://gyazo.com/68ded253614fbe029a9cc2aff5482e03)
 
 
 # 工夫したポイント
